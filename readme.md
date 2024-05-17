@@ -1,0 +1,1 @@
+A repository to practice the c language regularly and gain the fundamental knowledge reqired for all languages along the way
