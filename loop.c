@@ -8,8 +8,13 @@ int main() {
     //     printf("*\n");
     // }
     int i = 0;
-    while (i < a) {
+    // while (i < a) {
+    //     printf("*\n");
+    //     i++;
+    // }
+    do {
         printf("*\n");
         i++;
     }
+    while(i < a);
 }
