@@ -1,10 +1,12 @@
 #include <stdio.h>
+int cuber(int num);
 
 int main() {
     int input;
     printf("enter number to be cubed: ");
     scanf("%d", &input);
-    printf(cuber(input));
+    int output = cuber(input);
+    printf("%d", output);
 }
 
 int cuber(int num) {
