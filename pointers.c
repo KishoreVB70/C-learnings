@@ -3,11 +3,9 @@
 int main() {
     int bot = 500;
     int* add = &bot;
-    printf("Address of the variable before value change: %p\n", add);
+    printf("Address of the variable: %p\n", add);
     printf("Value of the variable according to the pointer: %d\n", *add);
-    bot = 20;
-    printf("Address of the variable after value change: %p\n", add);
-    printf("Value of the variable according to the pointer: %d\n", *add);
-    printf("Value of the variable: %d", bot);
+    *add = 10;
+    printf("Value of the variable according to it: %d", bot);
     return 0;
 }
