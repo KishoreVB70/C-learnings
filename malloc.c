@@ -1,5 +1,6 @@
-#include <stdio.h>;
-#include <stdlib.h>;
+#include <stdio.h>
+#include <stdlib.h>
+
 
 int main() {
     int *ptr, n = 0;
@@ -16,6 +17,10 @@ int main() {
 
     for (int i = 0; i < n; i ++ ) {
         *(ptr + i) = i;
+    }
+
+    for (int i = 0; i < n; i ++) {
+        printf("The %d element of the array is %d\n", i, *(ptr+i));
     }
 
     free(ptr);
