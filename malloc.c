@@ -16,7 +16,8 @@ int main() {
     }
 
     for (int i = 0; i < n; i ++ ) {
-        *(ptr + i) = i;
+        printf("Enter the %d element: \n", i);
+        scanf("%d", (ptr + i));
     }
 
     for (int i = 0; i < n; i ++) {
