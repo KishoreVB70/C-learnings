@@ -21,7 +21,32 @@ int main() {
     }
 
     for (int i = 0; i < n; i ++) {
-        printf("The %d element of the array is %d\n", i, *(ptr+i));
+        printf("The %d element address is %p\n", i, (ptr+i));
+    }
+
+    printf("Do you want to resize the array?, press 0 for yes: ");
+
+    int ans;
+    scanf("%d", &ans);
+
+    if (ans != 0 ) {
+        printf("thankyou");
+        exit(0);
+    }
+
+    int n2;
+    printf("enter the new num of elments: ");
+    scanf("%d", &n2);
+
+    ptr = realloc(ptr, sizeof(int) * n2);
+
+    for (int i = 0; i < n2; i ++) {
+        printf("enter the %d element: ", i);
+        scanf("%d", ptr+i);
+    }
+
+    for (int i = 0; i < n2; i ++) {
+        printf("The %d element address is %p\n", i, (ptr+i));
     }
 
     free(ptr);
