@@ -44,7 +44,7 @@ double pointerAverage(int n) {
     for (int i = 0; i < n; i++) {
         sum += *(ptr + i);
     }
-
+    free(ptr);
     avg = (double) sum/n;
     return avg;
 }
