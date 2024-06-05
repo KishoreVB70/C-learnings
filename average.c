@@ -1,7 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+double pointerAverage(int n);
+double normalAverage(int n);
 
 int main() {
-    int n = 0;
+    int n;
+    printf("enter the num of elements: ");
+    scanf("%d", &n);
+
+    double avg = pointerAverage(n);
+    printf("average is: %.1f", avg);
+    return 0;
+}
+
+double normalAverage(int n) {
     int sum = 0;
     int myArray[20];
     double avg;
@@ -16,12 +29,22 @@ int main() {
 
     // Data type casting of sum variable from int to double 
     avg = (double) sum/n;
+    return avg;
+}
 
-    printf("average is: %.2lf\n", avg);
-    printf("Printing all the elements\n");
-
-    for (int i; i < n; i++) {
-        printf("%d\n", myArray[i]);
+double pointerAverage(int n) {
+    double avg;
+    int sum;
+    int *ptr = malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        printf("Enter the %d element: ", i);
+        scanf("%d", ptr+i);
     }
-    return 0;
+
+    for (int i = 0; i < n; i++) {
+        sum += *(ptr + i);
+    }
+
+    avg = (double) sum/n;
+    return avg;
 }
