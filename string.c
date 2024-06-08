@@ -1,7 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
+void mainStringStuff();
+void stringFunctions();
+
 int main() {
+    stringFunctions();
+}
+
+
+void mainStringStuff() {
     // Different ways of string initialization
 
     char c1[10] = "Hello moto";
@@ -30,6 +38,27 @@ int main() {
         printf("Address is %p\n", name + i);
         printf("value is: %c\n", * (name + i));
     }
-
 }
 
+void stringFunctions() {
+    char name[] = "Berna";
+
+    // Strlen
+    int lengthOfName = strlen(name);
+    printf("Length: %d\n", lengthOfName);
+
+    //strcpy
+    char copy[50];
+    strcpy(copy, name);
+
+    //strcmp
+    int result = strcmp(copy, name);
+    if (result == 0 ) {
+        printf("Both are equal");
+    }
+    printf("Result: %d", result);
+
+    //strcat
+    //Adds the second into the first
+    strcat(name, copy);
+}
