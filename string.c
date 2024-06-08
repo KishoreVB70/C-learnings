@@ -21,5 +21,13 @@ int main() {
     printf("Your name is %s", name);
     puts(name);
 
+    // Printing out the address of all the elements
+    printf("Address of name is %p\n", name);
+
+    for (int i = 0; i < 8; i++) {
+        printf("Address is %p\n", name + i);
+        printf("value is: %c\n", * (name + i));
+    }
+
 }
 
