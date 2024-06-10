@@ -1,33 +1,28 @@
 #include <stdio.h>
+#include <string.h>
 
-struct Mine {
-    int number;
-    float noomber;
-    double noooomber;
-    char hi;
+struct User {
+    int userID;
+    char lastName[50];
+    int salary;
 // One way of creating struct is that declaring the name after the struct itself
-}boteson;
+}priya;
 
 int main() {
-    boteson.hi = 'a';
-    boteson.number = 1;
-    boteson.noomber = 5.2;
-    boteson.noooomber = 5.23145;
+    priya.userID = 1;
+    priya.salary = 30000;
+    // strcopy must only be used to store string
+    strcpy(priya.lastName, "Arjunan");
 
     // Another way of creating struct
-    struct Mine bot;
-    bot.hi = 'a';
-    bot.number = 1;
-    bot.noomber = 5.2;
-    bot.noooomber = 5.23145;
+    struct User divya;
+    divya.userID = 5;
+    divya.salary = 20000;
+    strcpy(divya.lastName, "Divya");
 
-
-
-
-    printf("my char: %c\n", bot.hi);
-    printf("my number: %d\n", bot.number);
-    printf("my noomber: %f\n", bot.noomber);
-    printf("my noooomber: %f", bot.noooomber);
+    printf("Salary of Divya: %d \n", divya.salary);
+    printf("Last name of Priya: ");
+    puts(priya.lastName);
     
     return 0;
 }
