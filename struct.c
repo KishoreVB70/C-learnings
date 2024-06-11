@@ -25,6 +25,8 @@ typedef struct User2 {
 
 void displayUser(struct User us);
 void displayaliasUser(user us);
+struct User returnUser();
+
 
 int main() {
     user ranjina;
@@ -42,11 +44,9 @@ int main() {
     strcpy(priya.posting.location, "Banglore");
 
     // Another way of creating struct
-    struct User divya;
-    divya.userID = 5;
-    divya.salary = 20000;
-    strcpy(divya.lastName, "Divya");
+    struct User divya = returnUser();
 
+    printf("User id of divya %d\n", divya.userID);
     displayUser(priya);
     displayaliasUser(ranjina);
     return 0;
@@ -59,4 +59,12 @@ void displayUser(struct User us) {
 
 void displayaliasUser(user us) {
     printf("Salary of Ranjina: %d \n", us.salary);
+}
+
+struct User returnUser() {
+    struct User divya;
+    divya.userID = 5;
+    divya.salary = 20000;
+    strcpy(divya.lastName, "Divya");
+    return divya;
 }
