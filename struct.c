@@ -19,14 +19,17 @@ typedef struct User2 {
     int userID;
     char lastName[50];
     int salary;
+    int age;
     struct Posting posting;
 }user;
 
 
 void displayUser(struct User us);
 void displayaliasUser(user us);
+void displayPointerUser(user* us);
 struct User returnUser();
 user returnAliasUser();
+
 
 int main() {
     user ranjina = returnAliasUser();
@@ -40,6 +43,17 @@ int main() {
 
     // Another way of creating struct
     struct User divya = returnUser();
+
+    // Using pointer
+    // defining the type of the pointer to be user
+    user *berns, berna;
+    // Store the address of the struct into the pointer
+    berns = &berna;
+
+    berns->age = 22;
+    strcpy(berns->lastName, "Melben");
+
+    displayPointerUser(berns);
 
     printf("User id of divya %d\n", divya.userID);
     displayUser(priya);
@@ -55,6 +69,12 @@ void displayUser(struct User us) {
 void displayaliasUser(user us) {
     printf("Location of Ranjina: ");   
     puts(us.posting.location);
+}
+
+void displayPointerUser(user* us) {
+    printf("Last name of Berna: ");   
+    puts(us->lastName);
+
 }
 
 struct User returnUser() {
@@ -74,3 +94,7 @@ user returnAliasUser() {
     strcpy(ranjina.lastName, "Ranjith");
     return ranjina;
 }
+
+// int addUserID() {
+
+// }
