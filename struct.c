@@ -26,15 +26,10 @@ typedef struct User2 {
 void displayUser(struct User us);
 void displayaliasUser(user us);
 struct User returnUser();
-
+user returnAliasUser();
 
 int main() {
-    user ranjina;
-    ranjina.userID = 9;
-    ranjina.salary = 0;
-    strcpy(ranjina.posting.location, "Erode");
-    strcpy(ranjina.posting.role, "Student");
-    strcpy(ranjina.lastName, "Ranjith");
+    user ranjina = returnAliasUser();
 
     priya.userID = 1;
     priya.salary = 30000;
@@ -58,7 +53,8 @@ void displayUser(struct User us) {
 }
 
 void displayaliasUser(user us) {
-    printf("Salary of Ranjina: %d \n", us.salary);
+    printf("Location of Ranjina: ");   
+    puts(us.posting.location);
 }
 
 struct User returnUser() {
@@ -67,4 +63,14 @@ struct User returnUser() {
     divya.salary = 20000;
     strcpy(divya.lastName, "Divya");
     return divya;
+}
+
+user returnAliasUser() {
+    user ranjina;
+    ranjina.userID = 9;
+    ranjina.salary = 0;
+    strcpy(ranjina.posting.location, "Erode");
+    strcpy(ranjina.posting.role, "Student");
+    strcpy(ranjina.lastName, "Ranjith");
+    return ranjina;
 }
