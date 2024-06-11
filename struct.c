@@ -22,6 +22,10 @@ typedef struct User2 {
     struct Posting posting;
 }user;
 
+
+void displayUser(struct User us);
+void displayaliasUser(user us);
+
 int main() {
     user ranjina;
     ranjina.userID = 9;
@@ -43,9 +47,16 @@ int main() {
     divya.salary = 20000;
     strcpy(divya.lastName, "Divya");
 
-    printf("Salary of Ranjina: %d \n", ranjina.salary);
-    printf("Role of Priya: ");
-    puts(priya.posting.role);
-    
+    displayUser(priya);
+    displayaliasUser(ranjina);
     return 0;
+}
+
+void displayUser(struct User us) {
+    printf("Role of Priya: ");
+    puts(us.posting.role);
+}
+
+void displayaliasUser(user us) {
+    printf("Salary of Ranjina: %d \n", us.salary);
 }
