@@ -29,6 +29,8 @@ void displayaliasUser(user us);
 void displayPointerUser(user* us);
 struct User returnUser();
 user returnAliasUser();
+user *returnPointerUser();
+
 
 
 int main() {
@@ -45,14 +47,14 @@ int main() {
     struct User divya = returnUser();
 
     // Using pointer
-    // defining the type of the pointer to be user
+    // This is not possible since, after the function execution, the memory is freed
+    // user *berns = returnPointerUser();
+
     user *berns, berna;
     // Store the address of the struct into the pointer
-    berns = &berna;
-
+    berns = &berna; 
     berns->age = 22;
     strcpy(berns->lastName, "Melben");
-
     displayPointerUser(berns);
 
     printf("User id of divya %d\n", divya.userID);
@@ -94,6 +96,21 @@ user returnAliasUser() {
     strcpy(ranjina.lastName, "Ranjith");
     return ranjina;
 }
+
+// Not working correctly
+// I think it is because, the memory allocated in this function will be freeded after the function execution
+// It is because we are not returning the variable, but we are returing the pointer to the address
+user *returnPointerUser() {
+    // defining the type of the pointer to be user
+    user *berns, berna;
+    // Store the address of the struct into the pointer
+    berns = &berna; 
+    berns->age = 22;
+    strcpy(berns->lastName, "Melben");
+    return berns;
+}
+
+
 
 // int addUserID() {
 
