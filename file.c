@@ -53,7 +53,7 @@ void textFile() {
     rewind(file);
 
     char big[70];
-    fscanf(file, "%s", big);
+    fgets(big, sizeof(big), file);
     puts(big);
     fclose(file);
 }
