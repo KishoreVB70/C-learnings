@@ -4,8 +4,8 @@
 
 
 enum status {
-  resolved = 4,
-  rejected = 6  
+  resolved = 200,
+  rejected = 400  
 }buildStatus;
 
 int main() {
