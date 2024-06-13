@@ -4,13 +4,14 @@ void binFile();
 void textFile();  
 
 int main() {
-    binFile();
+    // binFile();
+    textFile();
 
     return 0;
 }
 
 void binFile() {
-    FILE *file = fopen("./file.bin", "wb");
+    FILE *file = fopen("./file.bin", "wb+");
 
     if(file == NULL) {
         printf("Error! ");
@@ -18,19 +19,18 @@ void binFile() {
     }
 
     int nu = 42;
+    int newNu;
+
     fwrite(&nu, sizeof(int), 1, file);
-    
-    fclose(file);
-    int new;
 
 
-    file = fopen("./file.bin", "rb");
+    // Once after we write something to the file, the pointer in the file
+    // is at the last, so previous data can't be read
+    rewind(file);
 
+    fread(&newNu, sizeof(int), 1, file);
 
-
-    fread(&new, sizeof(int), 1, file);
-
-    printf("New: %d", new);
+    printf("New: %d", newNu);
 
     fclose(file);
 }
@@ -49,12 +49,11 @@ void textFile() {
     file = fopen("./file.txt", "a+");
 
     fprintf(file, "And another num is 52");
-    fclose(file);
 
-    file = fopen("./file.txt", "r");
+    rewind(file);
 
     char big[70];
     fscanf(file, "%s", big);
-
     puts(big);
+    fclose(file);
 }
